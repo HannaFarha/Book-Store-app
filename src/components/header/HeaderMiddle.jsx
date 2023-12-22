@@ -1,5 +1,5 @@
 const HeaderMiddle = () => {
-    return ( <>halllo</> );
+    return ( <>Hallo Word</> );
 }
  
 export default HeaderMiddle;
