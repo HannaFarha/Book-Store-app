@@ -5,6 +5,7 @@ import Header from "./components/header/Header";
 import HomePage from "./pages/home/HomePage";
 
 import "./App.css";
+import Slider from "./components/slider/Slider";
 
 function App() {
   
@@ -13,6 +14,7 @@ function App() {
     <>
       <BrowserRouter>
       <Header />
+      <Slider/>
        <Routes>
         <Route path="/" element={<HomePage />} />
        
