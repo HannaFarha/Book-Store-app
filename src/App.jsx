@@ -14,7 +14,7 @@ function App() {
     <>
       <BrowserRouter>
       <Header />
-      <Slider/>
+      
        <Routes>
         <Route path="/" element={<HomePage />} />
        

@@ -1,6 +1,12 @@
+import Slider from "../../components/slider/Slider";
+import Services from "../../components/services/Services";
+
 const HomePage=()=>{
     return(
-    <h1>HomePage</h1>
+        <>
+   < Slider />
+   <Services />
+   </>
     )
 }
 export default HomePage;
