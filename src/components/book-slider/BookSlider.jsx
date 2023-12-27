@@ -1,7 +1,16 @@
 import "./book-slider.css"
 import {useEffect,useState} from 'react'
+import Rating from "./Rating";
 const BookSlider = () => {
-    const [books,setBooks]=useState([])
+    const [slideIndex,setSlideIndex]=useState(0);
+    const [books,setBooks]=useState([]);
+    const handleClick =direction=>{
+        if(direction==="left"){
+            setSlideIndex(slideIndex -1);
+        }else{
+            setSlideIndex(slideIndex +1);
+        }
+    }
     const fetchBooks=async()=>{
         try{
             const response =await fetch('http://localhost:4000/book')
@@ -18,14 +27,14 @@ const BookSlider = () => {
     useEffect(()=>{fetchBooks()},[])
     return (
      <div  className="book-slider-container">
-    <i className="bi bi-chevron-left"></i>
-        <div className ="book-slider-wrapper">
+    {slideIndex >=0 && <i onClick={()=>handleClick("left")} className="bi bi-chevron-left book-slider-arrow-left"></i>}
+        <div style={{transform:`translateX(${slideIndex * -340}px)`}} className ="book-slider-wrapper">
             {books.map(book=>(
                 <div key={book.title} className="book-slide-item">
                 <img src={`books/${book.image}`} alt={book.title}  className="book-slide-item-img" />
                 <h1 className="book-slide-item-title">{book.title}</h1>
-                <div className="rating">rating</div>
-                <div className="book-slide-item-price">${book.price}</div>
+                <Rating rating={book.rating} reviews ={book.reviews} />
+                <div className="book-slider-item-price">${book.price}</div>
                 <div className="book-slider-icons-wrapper">
                     <i className="bi bi-eye-fill"></i>
                     <i className="bi bi-cart-plus"></i>      
@@ -35,7 +44,7 @@ const BookSlider = () => {
             )) }
         </div>
         
-        <i className="bi bi-chevron-right"></i>
+       {slideIndex <= books.length -1 && <i onClick={()=>handleClick("right")} className="bi bi-chevron-right book-slider-arrow-right" ></i>}
      </div>  
     );
 }

@@ -90,17 +90,17 @@
 
 .rating i {
     font-size: 21px;
-    margin-right: 4px;
+    margin-right: 2px;
 }
 
 .rating span:first-of-type {
     font-weight: 500;
-    margin: 0 10px;
-    color: var(--primary-text-color);
+    margin: 0 12px;
+    
 }
 
 .rating span:last-of-type {
     color: gray;
     font-size: 15px;
-    font-weight: 500;
+    font-weight:600;
 }
