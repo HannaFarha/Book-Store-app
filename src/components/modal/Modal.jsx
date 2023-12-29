@@ -1,7 +1,9 @@
 import "./modal.css"
 import Rating from "../book-slider/Rating"
+import {Link} from "react-router-dom"
+
 const Modal = ({bookData,setOpenModal}) => {
-    const{image,title,inStock,rating ,reviews,author,price}=bookData;
+    const{image,title,inStock,rating ,reviews,author,price, id}=bookData;
     return ( <div onClick={()=>setOpenModal(false)} className="modal-container">
         <div onClick={(event)=>event.stopPropagation()} className="modal-content">
             <i onClick={()=>setOpenModal(false)} className ="bi bi-x-circle-fill modal-icon"></i>  
@@ -24,7 +26,7 @@ const Modal = ({bookData,setOpenModal}) => {
                 Add To Cart</button>
 
             </div>
-            <div className="modal-content-info-link">See More Details</div>
+            <Link to={`/book/${id}`}className="modal-content-info-link">See More Details</Link>
                     </div> 
             </div>
     </div>  );
