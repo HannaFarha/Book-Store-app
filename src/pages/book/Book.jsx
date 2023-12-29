@@ -1,5 +1,105 @@
-const Book = () => {
-    return (<h1>Book</h1>  );
-}
+ import { useParams } from "react-router-dom";
+ import "./book.css";
+// import { books } from "../../data/books";
+// import Rating from "../../components/book-slider/Rating";
+ import {useState, useEffect} from "react";
+// import BookStoreContext from "../../context/bookStorContext";
+import Rating from "../../components/book-slider/Rating";
+const BookPage = () => {
+    const { id } = useParams();
+//   const { addToCart } = useContext(BookStoreContext);
+const [books,setBooks]=useState();
+   
  
-export default Book;
+
+const fetchBook = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/book/${id}`, {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': 'your-api-key',
+          'X-RapidAPI-Host': 'jokes-by-api-ninjas.p.rapidapi.com'
+        }
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setBooks(data);
+     
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
+useEffect(()=>{fetchBook()},[])
+
+
+
+  return (
+    <div className="book">
+    <div className="book-content">
+    {books &&  <img
+        src={`/books/${books.image}`}
+        alt={books.title}
+        className="book-content-img"
+      />}
+      <div className="book-content-info">
+      {books && <h1 className="book-title">{books.title}</h1>}
+        <div className="book-author">
+          by {books && <span>{books.author}</span>} (Author)
+        </div>
+        {books && <Rating  rating={books.rating} reviews={books.reviews}/>}
+
+        <div className="book-add-to-cart">
+            <input
+              className="book-add-to-cart-input"
+              type="number"
+              min="1"
+              max="100"
+              
+            />
+            <button className="book-add-to-cart-btn">
+              <i className="bi bi-cart-plus"></i>
+              Add To Cart
+            </button>
+          </div>
+
+        </div>
+        </div>
+        <p className="book-description">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium
+        molestiae corporis facere minima consequuntur, blanditiis voluptatem
+        praesentium possimus odit, aliquam temporibus nulla! Delectus quas totam
+        nihil est reiciendis sunt. Ex. Lorem ipsum dolor sit amet consectetur,
+        adipisicing elit. A veritatis vitae hic corrupti voluptas dignissimos
+        consequatur doloribus laborum adipisci quo voluptates dolorum cumque
+        tempora expedita possimus, ab quae tenetur fugit. Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Laudantium fugit illo porro
+        perspiciatis fuga doloremque placeat assumenda labore! Harum numquam
+        voluptate eveniet libero debitis consequuntur nostrum reiciendis
+        officiis delectus rem.
+      </p>
+
+      <div className="book-icons">
+        <div className="book-icon">
+          <small>Print Length</small>
+          <i className="bi bi-file-earmark-break"></i>
+          {books && <b>{books.printLength}pages</b>}
+        </div>
+        <div className="book-icon">
+          <small>Language</small>
+          <i className="bi bi-globe"></i>
+          {books && <b>{books.language}</b>}
+        </div>
+        <div className="book-icon">
+          <small>Publication date</small>
+          <i className="bi bi-calendar3"></i>
+          {books && <b>{books.PublicationDate}</b>}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BookPage;
