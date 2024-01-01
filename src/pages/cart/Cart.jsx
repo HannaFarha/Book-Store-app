@@ -5,22 +5,22 @@ import CartContext from '../../context/cartContext';
 
 const Card = () => {
     const{cartItems}=useContext(CartContext)
-    const [books,setBooks]=useState([]);
-    const fetchBooks=async()=>{
-        try{
-            const response =await fetch('http://localhost:4000/cartInfo')
-            if(response.ok){
-                const booksData =await response.json()
-                setBooks(booksData)
-            }
+    // const [books,setBooks]=useState([]);
+    // const fetchBooks=async()=>{
+    //     try{
+    //         const response =await fetch('http://localhost:4000/cartInfo')
+    //         if(response.ok){
+    //             const booksData =await response.json()
+    //             setBooks(booksData)
+    //         }
 
-        }
-        catch(error){
-            console.log(error)
-        }
-    }
-    useEffect(()=>{fetchBooks()},[])
-    console.log(books)
+    //     }
+    //     catch(error){
+    //         console.log(error)
+    //     }
+    // }
+    // useEffect(()=>{fetchBooks()},[])
+    // console.log(books)
 
     return ( <div className="cart">
     <h1 className="cart-title">Your Shopping Cart</h1>
