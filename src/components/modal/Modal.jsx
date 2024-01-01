@@ -1,8 +1,12 @@
 import "./modal.css"
 import Rating from "../book-slider/Rating"
 import {Link} from "react-router-dom"
+import CartContext from "../../context/cartContext"
+import { useContext,useState } from "react"
 
 const Modal = ({bookData,setOpenModal}) => {
+    const{addToCart}=useContext(CartContext);
+    const[qty,setQty]=useState(1)
     const{image,title,inStock,rating ,reviews,author,price, id}=bookData;
     return ( <div onClick={()=>setOpenModal(false)} className="modal-container">
         <div onClick={(event)=>event.stopPropagation()} className="modal-content">
@@ -20,8 +24,11 @@ const Modal = ({bookData,setOpenModal}) => {
               className="modal-add-to-cart-input"
               type="number"
               min="1"
-              max="100"/>
-              <button className="modal-add-to-cart-btn">
+              max="100"
+              value={qty}
+              onChange={e=>setQty(e.target.value)}
+              />
+              <button onClick={()=>addToCart({...bookData,quantity:qty})}      className="modal-add-to-cart-btn">
                 <i className="bi bi-cart-plus"></i> 
                 Add To Cart</button>
 

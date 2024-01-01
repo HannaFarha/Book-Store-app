@@ -20,6 +20,7 @@ const CartProvider = ( {children}) => {
         cartItems,
         addToCart,
         removeFromCart,
+        cartItemsLength: cartItems.length,
     }}>
         {children}
     </CartContext.Provider>  );
