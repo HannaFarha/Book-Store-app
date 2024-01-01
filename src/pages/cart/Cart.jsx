@@ -1,7 +1,10 @@
-import {useEffect,useState} from 'react'
+import {useEffect,useState,useContext} from 'react'
 import "./cart.css"
+import OrderSummary from './OrderSummary';
+import CartContext from '../../context/cartContext';
 
 const Card = () => {
+    const{cartItems}=useContext(CartContext)
     const [books,setBooks]=useState([]);
     const fetchBooks=async()=>{
         try{
@@ -23,7 +26,7 @@ const Card = () => {
     <h1 className="cart-title">Your Shopping Cart</h1>
     <div className="cart-wrapper">
       <div className="cart-items">
-{books.map(item =><div key={item.id} className="cart-item">
+{cartItems.map(item =><div key={item.id} className="cart-item">
     <img src={`/books/${item.image}`} alt={item.title} className="cart-item-img" />
     <div className="cart-item-info">
         <div>
@@ -34,7 +37,8 @@ const Card = () => {
                 <b>Author: </b>{item.author}
             </div>
             </div>
-            <div className="cart-item-quantity">
+           <div>
+           <div className="cart-item-quantity">
                 <button>
                     <i className="bi bi-plus-lg"></i>
                 </button>
@@ -43,14 +47,18 @@ const Card = () => {
                     <i className="bi bi-dash-lg"></i>
                 </button>
             </div>
+            <div className="cart-item-price">
+                ${item.price * item.quantity}
+            </div>
+            <i className="bi bi-trash-fill"></i>
+           </div>
     </div>
     </div>
     )}
         </div> 
+        <OrderSummary books={cartItems} />
         </div> 
-        <div className='cart-order-summary'>
-            Order Summary
-            </div> </div>
+       </div>
          );
 }
  

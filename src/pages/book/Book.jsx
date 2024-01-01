@@ -1,13 +1,15 @@
  import { useParams } from "react-router-dom";
  import "./book.css";
-// import { books } from "../../data/books";
-// import Rating from "../../components/book-slider/Rating";
- import {useState, useEffect} from "react";
-// import BookStoreContext from "../../context/bookStorContext";
+ import {useState, useEffect,useContext} from "react";
 import Rating from "../../components/book-slider/Rating";
+import CartContext from "../../context/cartContext";
+
+
 const BookPage = () => {
+   const {addToCart} = useContext(CartContext);
+   const[qty,setQty]=useState();
     const { id } = useParams();
-//   const { addToCart } = useContext(BookStoreContext);
+
 const [books,setBooks]=useState();
    
  
@@ -57,9 +59,11 @@ useEffect(()=>{fetchBook()},[])
               type="number"
               min="1"
               max="100"
+              value={qty}
+              onChange={e => setQty(e.target.value)}
               
             />
-            <button className="book-add-to-cart-btn">
+            <button onClick={()=>addToCart({...books,quantity:qty})} className="book-add-to-cart-btn">
               <i className="bi bi-cart-plus"></i>
               Add To Cart
             </button>
