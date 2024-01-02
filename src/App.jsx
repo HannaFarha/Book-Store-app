@@ -1,14 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
+
 
 import Header from "./components/header/Header";
 import About from "./pages/about/About";
+import Register from "./pages/forms/Register";
 import Authors from "./pages/authors/Authors";
 import Card from "./pages/cart/Cart";
 import Book from "./pages/book/Book";
 import Contact from  "./pages/contact/Contact";
+import Login from  "./pages/forms/Login";
 import HomePage from "./pages/home/HomePage";
-import "./App.css";
+
 
 function App() {
   
@@ -23,6 +25,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/authors" element={<Authors />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Card />} />
         <Route path="/book/:id" element={<Book />} />
        
