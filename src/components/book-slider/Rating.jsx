@@ -15,8 +15,6 @@ const Rating = ({rating,reviews}) => {
     {rating >=5 ? <i className="bi bi-star-fill"></i>
         : rating >= 4.5 ?<i className="bi bi-star-half"></i>
     :<i className="bi bi-star"></i>}
-
-
     <span >{rating}</span>
     <span>({reviews} reviews)</span>
     </div> );

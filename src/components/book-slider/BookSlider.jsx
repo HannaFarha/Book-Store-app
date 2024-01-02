@@ -16,9 +16,7 @@ const handleModal=(book)=>
 {
     setOpenModal(true);
     setBookData(book);
-    // console.log(book);
 }
-
     const handleClick =direction=>{
         if(direction==="left"){
             setSlideIndex(slideIndex -1);
@@ -33,7 +31,6 @@ const handleModal=(book)=>
                 const booksData =await response.json()
                 setBooks(booksData)
             }
-
         }
         catch(error){
             console.log(error)
@@ -64,5 +61,4 @@ const handleModal=(book)=>
      </div>  
     );
 }
- 
 export default BookSlider;

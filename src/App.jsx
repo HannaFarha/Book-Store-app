@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 import About from "./pages/about/About";
 import Register from "./pages/forms/Register";
 import Authors from "./pages/authors/Authors";
@@ -13,8 +12,6 @@ import HomePage from "./pages/home/HomePage";
 
 
 function App() {
-  
-
   return (
     <>
       <BrowserRouter>
@@ -31,7 +28,7 @@ function App() {
         <Route path="/book/:id" element={<Book />} />
        
       </Routes>
-      {/* <Footer /> */}
+      { <Footer />}
     </BrowserRouter>
     </>
   );
