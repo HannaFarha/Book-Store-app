@@ -7,7 +7,7 @@ import CartContext from "../../context/cartContext";
 
 const BookPage = () => {
    const {addToCart} = useContext(CartContext);
-   const[qty,setQty]=useState();
+   const[qty,setQty]=useState(1);
     const { id } = useParams();
 
 const [books,setBooks]=useState();
@@ -63,7 +63,7 @@ useEffect(()=>{fetchBook()},[])
               onChange={e => setQty(e.target.value)}
               
             />
-            <button onClick={()=>addToCart({...books,quantity:qty})} className="book-add-to-cart-btn">
+            <button onClick={()=>addToCart({...books, quantity : qty})} className="book-add-to-cart-btn">
               <i className="bi bi-cart-plus"></i>
               Add To Cart
             </button>

@@ -4,7 +4,7 @@ import OrderSummary from './OrderSummary';
 import CartContext from '../../context/cartContext';
 
 const Card = () => {
-    const{cartItems}=useContext(CartContext)
+    const{cartItems,addToCart,removeFromCart}=useContext(CartContext)
     // const [books,setBooks]=useState([]);
     // const fetchBooks=async()=>{
     //     try{
@@ -39,24 +39,25 @@ const Card = () => {
             </div>
            <div>
            <div className="cart-item-quantity">
-                <button>
+                <button onClick={()=>addToCart({...item,quantity:item.quantity +1})}>
                     <i className="bi bi-plus-lg"></i>
-                </button>
+                </button >
                 <b>{item.quantity}</b>
-                <button>
+                {item.quantity>1 &&<button  onClick={()=>addToCart({...item,quantity:item.quantity -1})}
+                >
                     <i className="bi bi-dash-lg"></i>
-                </button>
+                </button>}
             </div>
             <div className="cart-item-price">
-                ${item.price * item.quantity}
+                ${(item.price * item.quantity).toFixed(2)}
             </div>
-            <i className="bi bi-trash-fill"></i>
+            <i onClick={()=>removeFromCart(item.id)} className="bi bi-trash-fill"></i>
            </div>
     </div>
     </div>
     )}
         </div> 
-        <OrderSummary books={cartItems} />
+        <OrderSummary key= {cartItems.id} books={cartItems} />
         </div> 
        </div>
          );
