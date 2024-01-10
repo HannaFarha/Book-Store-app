@@ -16,7 +16,7 @@ const [books,setBooks]=useState();
 
 const fetchBook = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/book/${id}`, {
+      const response = await fetch(`https://delightful-cuff-cow.cyclic.app/${id}`, {
         method: 'GET',
         headers: {
           'X-RapidAPI-Key': 'your-api-key',
@@ -35,8 +35,6 @@ const fetchBook = async () => {
   }
 
 useEffect(()=>{fetchBook()},[])
-
-
 
   return (
     <div className="book">

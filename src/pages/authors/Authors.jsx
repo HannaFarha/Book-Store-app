@@ -3,12 +3,10 @@ import "./authors.css";
 
 const Authors = () => {
   const [search, setSearch] = useState("");
-
-
-    const [authors,setAuthors]=useState([]);
+const [authors,setAuthors]=useState([]);
 const fetchBooks=async()=>{
     try{
-        const response =await fetch('http://localhost:4000/authors')
+        const response =await fetch('https://delightful-cuff-cow.cyclic.app/authors')
         if(response.ok){
             const booksData =await response.json()
             setAuthors(booksData)
