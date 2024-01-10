@@ -16,7 +16,7 @@ const [books,setBooks]=useState();
 
 const fetchBook = async () => {
     try {
-      const response = await fetch(`https://delightful-cuff-cow.cyclic.app/${id}`, {
+      const response = await fetch(`https://delightful-cuff-cow.cyclic.app/book/${id}`, {
         method: 'GET',
         headers: {
           'X-RapidAPI-Key': 'your-api-key',
