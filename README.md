@@ -1,4 +1,4 @@
-https://book-store-app-hanna-farha.netlify.app/
+https://book-store-hanna-farha.netlify.app
 
 ![book](https://github.com/HannaFarha/Book-Store-app/assets/87949041/fb889d71-61e9-49a2-b880-6befc9f17459)
 ![BookStore](https://github.com/HannaFarha/Book-Store-app/assets/87949041/f8b4adf5-9989-4f8a-ba24-198de9b6a68f)
