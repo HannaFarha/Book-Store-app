@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import "./authors.css";
-import { authors } from "../../data/author";
+import { authors } from "../../components/data/author";
 const Authors = () => {
   const [search, setSearch] = useState("");
 
