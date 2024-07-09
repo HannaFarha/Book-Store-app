@@ -5,23 +5,7 @@ import CartContext from '../../context/cartContext';
 
 const Card = () => {
     const{cartItems,addToCart,removeFromCart}=useContext(CartContext)
-    //Data from fake Api
-    // const [books,setBooks]=useState([]);
-    // const fetchBooks=async()=>{
-    //     try{
-    //         const response =await fetch('http://localhost:4000/cartInfo')
-    //         if(response.ok){
-    //             const booksData =await response.json()
-    //             setBooks(booksData)
-    //         }
-    //     }
-    //     catch(error){
-    //         console.log(error)
-    //     }
-    // }
-    // useEffect(()=>{fetchBooks()},[])
-    // console.log(books)
-
+    
     return ( <div className="cart">
     <h1 className="cart-title">Your Shopping Cart</h1>
     <div className="cart-wrapper">
@@ -64,3 +48,4 @@ const Card = () => {
 }
  
 export default Card;
+                   
