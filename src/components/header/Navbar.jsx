@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navbar = ({ toggle, setToggle }) => {
+const Navbar = ({toggle, setToggle}) => {
   return (
     <nav style={{ left: toggle && "0" }} className="navbar">
       <ul className="navbar-links">

@@ -5,6 +5,7 @@ import CartContext from '../../context/cartContext';
 
 const Card = () => {
     const{cartItems,addToCart,removeFromCart}=useContext(CartContext)
+    //Data from fake Api
     // const [books,setBooks]=useState([]);
     // const fetchBooks=async()=>{
     //     try{
@@ -13,7 +14,6 @@ const Card = () => {
     //             const booksData =await response.json()
     //             setBooks(booksData)
     //         }
-
     //     }
     //     catch(error){
     //         console.log(error)

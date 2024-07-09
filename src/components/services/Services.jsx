@@ -2,6 +2,7 @@ import "./services.css";
 
 const Services = () => {
   return (
+    //all are the same and can be changed
     <div className="services">
       <div className="service-item">
         <i className="bi bi-truck"></i>
