@@ -11,11 +11,11 @@ const Register = () => {
   const [books,setBooks]=useState([]);
   const [oldData,setOldData]=useState();
   console.log(oldData)
-  const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:4000/emails/${id}`);
-    alert('Data deleted successfully');
-    fetchBooks()
-  }
+  // const handleDelete = async (id) => {
+  //   await axios.delete(`http://localhost:4000/emails/${id}`);
+  //   alert('Data deleted successfully');
+  //   fetchBooks()
+  // }
     
 const dataEdit = async (id) => {
   
