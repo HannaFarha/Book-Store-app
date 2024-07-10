@@ -27,7 +27,7 @@ const handleModal=(book)=>
     // https://upcdn.io/FW25bqM/raw/db-5NGi.json
     const fetchBooks=async()=>{
         try{
-            const response =await fetch('https://delightful-cuff-cow.cyclic.app/book')
+            const response =await fetch('https://api-backend.adaptable.app/book')
             if(response.ok){
                 const booksData =await response.json()
                 setBooks(booksData)

@@ -6,7 +6,7 @@ const Authors = () => {
 const [authors,setAuthors]=useState([]);
 const fetchBooks=async()=>{
     try{
-        const response =await fetch('https://delightful-cuff-cow.cyclic.app/authors')
+        const response =await fetch('https://api-backend.adaptable.app/authors')
         if(response.ok){
             const booksData =await response.json()
             setAuthors(booksData)
