@@ -27,7 +27,7 @@ const handleModal=(book)=>
     // https://upcdn.io/FW25bqM/raw/db-5NGi.json
     const fetchBooks=async()=>{
         try{
-            const response =await fetch('https://api-backend.adaptable.app/book')
+            const response =await fetch('https://api-fack-json-server-backend-1.onrender.com/book')
             if(response.ok){
                 const booksData =await response.json()
                 setBooks(booksData)
