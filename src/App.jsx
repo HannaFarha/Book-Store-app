@@ -11,7 +11,7 @@ import Login from  "./pages/forms/Login";
 import HomePage from "./pages/home/HomePage";
 
 
-function App() {
+/*function App() {
   return (
     <>
       <BrowserRouter>
