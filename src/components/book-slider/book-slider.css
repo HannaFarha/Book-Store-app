@@ -1,9 +1,4 @@
 
-    /* 
-       تم إضافة الخطوط لضمان التوافق 
-    */
-    @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@300;400;500;600;700;900&display=swap');
-
     .book-slider-container {
         width: 100%;
         height: 500px;
@@ -11,9 +6,8 @@
         position: relative;
         overflow-x: hidden;
         margin-bottom: 60px;
-        background-color: #111111; /* خلفية داكنة بدل الأبيض */
+        background-color: #111111; /* تغيير من white إلى أسود مطفأ */
         padding: 10px 20px 20px 20px;
-        border-radius: 12px; /* حواف مستديرة للأناقة */
     }
 
     .book-slider-arrow-left,
@@ -23,11 +17,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgba(22, 22, 22, 0.9); /* خلفية داكنة شبه شفافة */
-        backdrop-filter: blur(5px); /* تأثير ضبابي خفيف */
-        color: #D4AF37; /* السهم ذهبي */
-        border: 1px solid #D4AF37; /* إطار ذهبي */
-        border-radius: 8px; /* حواف أنعم */
+        background-color: #0a0a0a; /* تغيير من #222 إلى أسود عميق */
+        color: #D4AF37; /* تغيير من var(--main-color) إلى ذهبي */
+        border-radius: 5px;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -35,14 +27,7 @@
         cursor: pointer;
         z-index: 2;
         font-size: 32px;
-        transition: all 0.3s ease; /* تأثير حركي */
-    }
-
-    .book-slider-arrow-left:hover,
-    .book-slider-arrow-right:hover {
-        background-color: #D4AF37; /* يتحول للذهبي عند التمرير */
-        color: #0a0a0a; /* السهم يصبح أسود */
-        box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); /* توهج ذهبي */
+        border: 1px solid #D4AF37; /* إضافة حدود ذهبية لتتناسب مع الاستايل */
     }
 
     .book-slider-arrow-left {
@@ -60,98 +45,70 @@
     }
 
     .book-slide-item {
-        border: 1px solid #1f1f1f; /* حد داكن خفيف */
-        background-color: #161616; /* خلفية البطاقة داكنة */
+        border: 1px solid #1f1f1f; /* تغيير اللون الحدودي ليجمع بين الأسود والذهبي */
+        background-color: #161616; /* تغيير من snow إلى رمادي داكن */
         margin: 0 10px;
         width: 340px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-direction: column;
-        padding: 20px 10px; /* زيادة المساحة العمودية */
-        border-radius: 10px;
-        transition: all 0.4s ease;
-    }
-
-    /* تأثير عند تحويم الماوس على بطاقة الكتاب */
-    .book-slide-item:hover {
-        border-color: #D4AF37; /* الحد يصبح ذهبي */
-        transform: translateY(-8px); /* ترتفع للأعلى */
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* ظل عميق */
+        padding: 10px;
     }
 
     .book-slide-item-img {
         width: 60%;
         object-fit: contain;
-        transition: transform 0.5s ease;
-        filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3)); /* ظل للصورة */
-    }
-    
-    .book-slide-item:hover .book-slide-item-img {
-        transform: scale(1.05); /* الصورة تكبر قليلاً */
     }
 
     .book-slide-item-title {
         font-size: 18px;
-        color: #ffffff; /* نص أبيض */
-        font-family: 'Cairo', sans-serif;
-        font-weight: 700;
-        margin-top: 15px;
-        text-align: center;
+        color: #ffffff; /* تغيير لون النص للأبيض ليظهر على الخلفية الداكنة */
     }
 
     .book-slider-item-price {
-        font-size: 22px;
+        font-size: 21px;
         font-weight: bold;
-        color: #D4AF37; /* السعر بالذهبي بدل الأحمر */
-        font-family: 'Cairo', sans-serif;
-        margin-top: 5px;
+        color: #D4AF37; /* تغيير من crimson إلى ذهبي */
     }
 
     .book-slider-icons-wrapper {
-        border-top: 1px solid #2a2a2a; /* حد فاصل داكن */
+        border-top: 1px solid #2a2a2a; /* تغيير من gray إلى لون داكن */
         width: 100%;
         text-align: center;
-        padding-top: 10px;
-        margin-top: 15px;
+        padding-top: 5px;
     }
 
     .book-slider-icons-wrapper i {
-        font-size: 24px;
+        font-size: 27px;
         cursor: pointer;
-        margin: 0 8px;
-        color: #9ca3af; /* أيقونات رمادية فاتحة */
-        transition: color 0.3s ease, transform 0.3s ease;
+        margin: 0 5px;
+        color: #9ca3af; /* تغيير من rgb(56, 56, 56) إلى رمادي فاتح */
+        transition: color 0.3s ease; /* إضافة تأثير بسيط للون */
     }
-
+    
     .book-slider-icons-wrapper i:hover {
-        color: #D4AF37; /* تصبح ذهبية عند التمرير */
-        transform: scale(1.1);
+        color: #D4AF37; /* يتحول للذهبي عند التمرير */
     }
 
     /* Rating */
     .rating {
-        color: #D4AF37; /* النجوم ذهبية دائماً */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 5px;
+        color: #D4AF37; /* تغيير لون النجوم للذهبي الدقيق */
     }
 
     .rating i {
-        font-size: 18px;
-        margin-left: 3px; /* RTL spacing */
+        font-size: 21px;
+        margin-right: 2px;
     }
 
     .rating span:first-of-type {
-        font-weight: 600;
+        font-weight: 500;
         margin: 0 12px;
-        color: #ffffff; /* رقم التقييم أبيض */
-        font-family: 'Cairo', sans-serif;
+        color: #ffffff; /* تغيير لون رقم التقييم للأبيض */
     }
 
     .rating span:last-of-type {
-        color: #6b7280; /* لون نص التقييم رمادي غامق */
-        font-size: 14px;
+        color: #6b7280; /* تغيير من gray إلى رمادي مناسب للخلفية الداكنة */
+        font-size: 15px;
         font-weight: 600;
     }
