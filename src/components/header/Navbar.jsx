@@ -1,24 +1,35 @@
 import { Link } from "react-router-dom";
 
-const Navbar = ({toggle, setToggle}) => {
+const Navbar = ({ toggle, setToggle }) => {
   return (
-    <nav style={{ left: toggle && "0" }} className="navbar">
+    <nav className={`navbar ${toggle ? "active" : ""}`}>
       <ul className="navbar-links">
         <Link to="/" onClick={() => setToggle(false)} className="navbar-link">
+          <i className="bi bi-house-door" style={{ marginLeft: '8px' }}></i>
           Home
         </Link>
         <Link
-          to="/authors"
+          to="/shop"
           onClick={() => setToggle(false)}
           className="navbar-link"
         >
-          Authors
+          <i className="bi bi-grid" style={{ marginLeft: '8px' }}></i>
+          Shop
+        </Link>
+        <Link
+          to="/trending"
+          onClick={() => setToggle(false)}
+          className="navbar-link"
+        >
+          <i className="bi bi-graph-up-arrow" style={{ marginLeft: '8px' }}></i>
+          Trending
         </Link>
         <Link
           to="/about"
           onClick={() => setToggle(false)}
           className="navbar-link"
         >
+          <i className="bi bi-info-circle" style={{ marginLeft: '8px' }}></i>
           About Us
         </Link>
         <Link
@@ -26,14 +37,8 @@ const Navbar = ({toggle, setToggle}) => {
           onClick={() => setToggle(false)}
           className="navbar-link"
         >
-          Contact Us
-        </Link>
-        <Link
-          to="/register"
-          onClick={() => setToggle(false)}
-          className="navbar-link"
-        >
-          Register
+          <i className="bi bi-envelope" style={{ marginLeft: '8px' }}></i>
+          Contact
         </Link>
       </ul>
     </nav>
