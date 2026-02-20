@@ -1,134 +1,187 @@
-.footer {
-    padding: 10px 30px;
-    background-color: var(--primary-color);
-}
 
-/* Footer Social Media */
-.footer-social-media {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-bottom: 1px solid var(--main-color);
-    padding: 10px;
-    padding-bottom: 20px;
-}
+    /* 
+       تم إضافة خطوط جوجل لضمان ظهور الخطوط بشكل مماثل 
+       يمكنك وضع هذا السطر في الـ <head> الخاص بك
+    */
+    @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@300;400;500;600;700;900&display=swap');
 
-.footer-social-medai-text {
-    color: var(--main-color);
-    font-size: 24px;
-    font-weight: 500;
-}
-
-.footer-social-media-icons {
-    display: flex;
-    align-items: center;
-}
-
-.footer-social-media-icon{
-    margin: 0 15px;
-    background-color: var(--main-color);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.footer-social-media-icon i {
-    font-size: 32px;
-}
-
-/* Footer Links Wrapper */
-.footer-links-wrapper {
-    padding: 20px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
-.footer-links-item {
-    width: 30%;
-}
-
-.footer-links-item-title {
-    color: white;
-    font-size: 21px;
-    font-weight: 700;
-    border-bottom: 3px solid white;
-    width: max-content;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-.footer-links {
-    padding: 5px;
-}
-
-.footer-link {
-    font-size: 20px;
-    color: var(--main-color);
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-.footer-address-item {
-    margin-bottom: 20px;
-    font-size: 20px;
-    color: var(--main-color);
-}
-
-.footer-address-item i {
-   font-size: 27px;
-   margin-right: 5px;
-}
-
-.footer-description {
-    font-size: 17px;
-    color: var(--main-color);
-}
-
-/* Media Queries */
-
-@media (max-width: 820px){
-
-    .footer-social-media-icon{
-        margin-right: 7px;
-    }
-    
-    .footer-links-wrapper {
-        flex-wrap: wrap;
-    }
-    .footer-links-item {
-        width: 40%;
-    }
-
-    .footer-links-item:last-of-type {
-        width: 80%;
-        margin-top: 15px;
-    }
-}
-
-@media (max-width: 720px){
-
-    .footer-social-media {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .footer-social-media-icon{
-        margin: 15px 10px 0 0;
-    }
-}
-
-@media (max-width: 520px){
     .footer {
-        padding: 15px;
+        padding: 40px 30px;
+        background-color: #0a0a0a; /* Matte Black Background */
+        border-top: 1px solid #1f1f1f; /* حد فاصل علوي خفيف */
+        font-family: 'Almarai', sans-serif; /* خط الجسم */
     }
+
+    /* Footer Social Media */
+    .footer-social-media {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-bottom: 1px solid #1f1f1f; /* Matte Border */
+        padding: 10px;
+        padding-bottom: 30px;
+    }
+
+    /* تم الإبقاء على اسم الكلاس كما كتبته (medai) ليتوافق مع كود HTML الخاص بك */
+    .footer-social-medai-text {
+        color: #D4AF37; /* Gold Color */
+        font-size: 26px;
+        font-weight: 700;
+        font-family: 'Cairo', sans-serif; /* خط العناوين */
+        letter-spacing: 0.5px;
+    }
+
+    .footer-social-media-icons {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* مسافة بين الأيقونات */
+    }
+
+    .footer-social-media-icon {
+        margin: 0 5px; /* تعديل بسيط للمسافات */
+        background-color: transparent; /* خلفية شفافة */
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid #D4AF37; /* إطار ذهبي */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #D4AF37; /* لون الأيقونة ذهبي */
+        transition: all 0.4s ease; /* تأثير حركي سلس */
+    }
+
+    .footer-social-media-icon:hover {
+        background-color: #D4AF37; /* يتحول لذهبي عند التمرير */
+        color: #0a0a0a; /* يتحول الأيقون لأسود */
+        transform: translateY(-5px); /* يرتفع قليلاً للأعلى */
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); /* ظل ذهبي خفيف */
+    }
+
+    .footer-social-media-icon i {
+        font-size: 24px; /* حجم مناسب للأيقونات */
+    }
+
+    /* Footer Links Wrapper */
+    .footer-links-wrapper {
+        padding: 40px 20px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
     .footer-links-item {
-        width: 90%;
-        margin-top: 20px;
+        width: 30%;
     }
-    
-}
+
+    .footer-links-item-title {
+        color: #ffffff; /* لون العنوان أبيض */
+        font-size: 20px;
+        font-weight: 700;
+        font-family: 'Cairo', sans-serif;
+        border-bottom: 2px solid #D4AF37; /* خط ذهبي تحت العنوان */
+        width: max-content;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        padding: 5px;
+    }
+
+    .footer-link {
+        font-size: 18px;
+        color: #9ca3af; /* لون رمادي فاتح (Gray-400) */
+        margin-bottom: 12px;
+        cursor: pointer;
+        display: block;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .footer-link:hover {
+        color: #D4AF37; /* يتحول للذهبي عند التمرير */
+        transform: translateX(-5px); /* يتحرك قليلاً لليسار (RTL) */
+    }
+
+    .footer-address-item {
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: #9ca3af; /* Gray */
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-address-item i {
+        font-size: 20px;
+        margin-left: 10px; /* مسافة بين الأيقونة والنص في RTL */
+        color: #D4AF37; /* أيقونات ذهبية */
+    }
+
+    .footer-description {
+        font-size: 16px;
+        color: #6b7280; /* Gray-500 */
+        line-height: 1.8;
+    }
+
+    /* Media Queries */
+
+    @media (max-width: 820px) {
+        .footer-social-media-icon {
+            margin-right: 7px;
+        }
+
+        .footer-links-wrapper {
+            flex-wrap: wrap;
+        }
+
+        .footer-links-item {
+            width: 45%; /* تعديل العرض ليكون أوسع قليلاً */
+            margin-bottom: 20px;
+        }
+
+        .footer-links-item:last-of-type {
+            width: 100%;
+            margin-top: 15px;
+        }
+    }
+
+    @media (max-width: 720px) {
+        .footer-social-media {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .footer-social-medai-text {
+            margin-bottom: 10px;
+        }
+
+        .footer-social-media-icon {
+            margin: 0 7px;
+        }
+    }
+
+    @media (max-width: 520px) {
+        .footer {
+            padding: 20px 15px;
+        }
+
+        .footer-links-item {
+            width: 100%;
+            margin-top: 25px;
+            text-align: center; /* توسيط النص في الشاشات الصغيرة جداً */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links-item-title {
+            text-align: center;
+        }
+        
+        .footer-address-item {
+            justify-content: center; /* لتوسيط العناوين في الشاشات الصغيرة */
+        }
+    }
