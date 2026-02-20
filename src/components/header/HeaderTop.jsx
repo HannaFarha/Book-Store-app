@@ -17,9 +17,9 @@ const HeaderTop = ({ setToggle, toggle }) => {
       
       <div className="header-top-text">Trending Products & Smart Solutions</div>
       
-      <Link to="/login" className="header-top-link">
+      {/*<Link to="/login" className="header-top-link">
         <i className="bi bi-person-circle"></i> Login
-      </Link>
+      </Link>*/}
     </div>
   );
 };
