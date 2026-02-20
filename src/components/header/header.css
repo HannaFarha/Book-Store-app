@@ -1,6 +1,7 @@
 
+    /* === Base Styles (Desktop & Common) === */
     .header {
-        height: 250px;
+        min-height: 250px; /* استخدام min-height للمرونة */
         background-color: #0a0a0a; /* أسود مطفأ */
         width: 100%;
         position: relative;
@@ -17,11 +18,12 @@
     }
 
     .header-top-menu {
-        display: none;
-        font-size: 40px;
-        color: #D4AF37; /* ذهبي */
+        display: none; /* مخفي على الديسكتوب */
+        font-size: 32px;
+        color: #D4AF37;
         font-weight: bold;
         cursor: pointer;
+        z-index: 10;
     }
 
     .header-top-phone,
@@ -29,7 +31,7 @@
     .header-top-link {
         font-size: 27px;
         font-weight: 500;
-        color: #D4AF37; /* ذهبي */
+        color: #D4AF37;
     }
 
     .header-top-link {
@@ -43,29 +45,28 @@
         justify-content: space-between;
         padding: 0 30px;
         height: 50%;
+        position: relative; /* مهم لتمركز العناصر على الموبايل */
     }
 
     .header-middle-logo {
+        color: #ffffff;
         font-size: 20px;
         text-decoration: none;
-        color: #ffffff; /* أبيض */
         display: flex;
         align-items: center;
+        z-index: 5;
     }
 
     .header-middle-logo i {
         margin: 0 6px;
-        color: #D4AF37; /* أيقونة ذهبية */
-    }
-
-    .header-middle-logo i {
         font-size: 40px;
+        color: #D4AF37;
     }
 
     .header-middle-search-box {
         width: 700px;
-        background-color: #161616; /* خلفية داكنة للمربع */
-        border: 1px solid #D4AF37; /* حد ذهبي */
+        background-color: #161616;
+        border: 1px solid #D4AF37;
         height: 60px;
         border-radius: 50px;
         overflow: hidden;
@@ -76,55 +77,60 @@
         width: 100%;
         height: 100%;
         border: none;
-        padding-left: 25px;
+        padding: 0 60px 0 25px; /* تعديل الـ padding ليتناسب مع RTL */
         font-size: 24px;
-        background-color: transparent; /* شفافية ليرى لون الخلفية */
-        color: #ffffff; /* نص أبيض */
+        background-color: transparent;
+        color: #ffffff;
     }
-    
+
     .header-middle-search-input::placeholder {
-        color: #6b7280; /* لون النص التوضيحي رمادي */
+        color: #6b7280;
     }
 
     .header-middle-search-box i.bi-search {
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 10px;
-        font-size: 40px;
-        color: #D4AF37; /* أيقونة بحث ذهبية */
+        left: 20px; /* يمين في RTL */
+        font-size: 32px;
+        color: #D4AF37;
+        display: flex;
+        align-items: center;
     }
 
     .header-middle-cart-wrapper {
         position: relative;
+        display: flex;
+        align-items: center;
     }
 
     .cart-notification {
         position: absolute;
         top: -7px;
         right: -12px;
-        color: #0a0a0a; /* نص أسود على الخلفية الذهبية */
-        background-color: #D4AF37; /* خلفية ذهبية */
+        color: #0a0a0a;
+        background-color: #D4AF37;
         border-radius: 50%;
         width: 30px;
         height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 17px;
-        font-weight: bold; /* لإبراز الرقم */
+        font-size: 16px;
+        font-weight: bold;
+        border: 2px solid #0a0a0a; /* حد لفصل الخلفية */
     }
 
     .header-middle-cart-wrapper i.bi-cart2 {
         font-size: 44px;
-        color: #D4AF37; /* عربة ذهبية */
+        color: #D4AF37;
         cursor: pointer;
     }
 
     /* Navbar */
     .navbar {
-        background-color: #111111; /* خلفية سوداء داكنة (أفخم من الذهبي الممتلئ) */
-        box-shadow: 0 0 1px 1px #1f1f1f; /* ظل داكن */
+        background-color: #111111;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         height: 30%;
         display: flex;
         align-items: center;
@@ -141,7 +147,7 @@
         padding: 0 20px;
         font-size: 21px;
         font-weight: 600;
-        color: #D4AF37; /* روابط ذهبية */
+        color: #D4AF37;
         cursor: pointer;
         height: 100%;
         display: flex;
@@ -151,11 +157,13 @@
     }
 
     .navbar-link:hover {
-        background-color: #D4AF37; /* خلفية ذهبية عند التمرير */
-        color: #0a0a0a; /* نص أسود عند التمرير */
+        background-color: #D4AF37;
+        color: #0a0a0a;
     }
 
-    /* Media Queries */
+    /* === Responsive Design (Mobile First Adjustments) === */
+
+    /* Tablet Size */
     @media (max-width: 990px) {
         .header-middle-search-box {
             width: 600px;
@@ -166,79 +174,168 @@
         .header-middle-search-box {
             width: 450px;
         }
-
         .header-top-text {
             font-size: 17px;
         }
-
         .header-middle-logo {
             font-size: 17px;
-            font-weight: 400;
         }
     }
 
+    /* Mobile Size (The Critical Part) */
     @media (max-width: 720px) {
+        /* Header adjustments */
+        .header {
+            min-height: auto; /* السماح للارتفاع بالتغير */
+            height: auto;
+            padding-bottom: 15px; /* مساحة أسفل */
+        }
+
+        .header-top {
+            height: auto;
+            padding: 15px 20px;
+            border-bottom: none; /* إزالة الحد لتنظيف المظهر */
+        }
+
+        /* Hide text, show menu icon */
         .header-top-text {
-            display: block;
-        }
-
-        .header-top-menu {
-            display: block; /* يظهر زر القائمة */
-            color: #D4AF37; /* لون ذهبي للزر */
-        }
-
-        .header-middle {
-            flex-wrap: wrap;
-            padding: 0 30px;
-            height: 80%;
-        }
-
-        .header-middle-search-box {
-            width: 100%;
-        }
-
-        .header-middle-logo {
             display: none;
         }
+        
+        .header-top-menu {
+            display: block;
+            order: 1; /* اليسار */
+        }
 
+        .header-top-phone {
+            font-size: 16px; /* تصغير خط الهاتف قليلاً */
+            order: 3; /* اليمين */
+        }
+
+        /* Header Middle Layout for Mobile */
+        .header-middle {
+            flex-wrap: wrap; /* السماح للعناصر بالنزول لسطر جديد */
+            padding: 0 15px;
+            height: auto;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        /* LOGO: Show and Center */
+        .header-middle-logo {
+            display: flex !important; /* إجبار الظهور */
+            order: 2; /* الوسط */
+            position: absolute; /* تمركز مطلق في المنتصف */
+            left: 50%;
+            transform: translateX(-50%);
+            top: -50px; /* ضبط الموقع ليكون في الصف العلوي */
+            font-size: 24px;
+        }
+        
+        .header-middle-logo i {
+            font-size: 36px;
+        }
+
+        /* SEARCH: Full Width */
+        .header-middle-search-box {
+            width: 100%; /* العرض الكامل */
+            order: 4; /* أسفل */
+            margin-top: 15px;
+            height: 50px; /* ارتفاع مناسب للموبايل */
+        }
+
+        .header-middle-search-input {
+            font-size: 18px;
+        }
+
+        .header-middle-search-box i.bi-search {
+            font-size: 24px;
+        }
+
+        /* CART: Position in Top Row */
+        .header-middle-cart-wrapper {
+            position: absolute;
+            right: 20px;
+            top: -45px; /* محاذاة مع الشعار والقائمة */
+            order: 3;
+        }
+
+        .header-middle-cart-wrapper i.bi-cart2 {
+            font-size: 32px;
+        }
+        
+        .cart-notification {
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            top: -5px;
+            right: -8px;
+        }
+
+        /* NAVBAR: Sidebar Style */
         .navbar {
             position: fixed;
-            top: 50px;
-            left: -300px;
-            width: 300px;
+            top: 0;
+            left: 0; /* لوحة التحكم تظهر من اليسار */
+            width: 280px; /* عرض مناسب للموبايل */
             height: 100vh;
             align-items: flex-start;
-            z-index: 999;
-            transition: all 1s ease;
-            background-color: #0a0a0a; /* خلفية سوداء للقائمة الجانبية */
-            border-right: 1px solid #D4AF37; /* حد ذهبي للمسة جمالية */
+            z-index: 9999;
+            transform: translateX(-100%); /* مخفية افتراضياً */
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 5px 0 20px rgba(0,0,0,0.8);
+            padding-top: 80px; /* مساحة من الأعلى */
+        }
+
+        /* Class to be added via JS when menu opens */
+        .navbar.active {
+            transform: translateX(0);
         }
 
         .navbar-links {
             flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            height: max-content;
+            justify-content: flex-start;
+            align-items: stretch; /* stretch items */
+            height: auto;
             width: 100%;
+            padding: 20px 0;
         }
 
         .navbar-link {
             width: 100%;
-            padding: 20px;
-            border-bottom: 1px solid #1f1f1f; /* فواصل بين العناصر */
+            padding: 20px 30px;
+            font-size: 20px;
+            border-bottom: 1px solid #1f1f1f;
+            justify-content: flex-start; /* النص لليسار */
+        }
+        
+        .navbar-link:hover {
+            background-color: #D4AF37;
+            color: #0a0a0a;
+            padding-right: 40px; /* تأثير حركة بسيط */
         }
     }
 
+    /* Small Mobile Size */
     @media (max-width: 520px) {
         .header-top {
-            padding: 0 15px;
+            padding: 10px 15px;
         }
-
+        
         .header-middle {
-            padding: 0 15px;
+            padding: 0 10px;
         }
 
         .header-top-phone {
+            font-size: 14px; /* خط أصغر للهواتف الصغيرة جداً */
+        }
+        
+        .header-middle-logo {
             font-size: 20px;
+            top: -45px;
+        }
+        
+        .header-middle-logo i {
+            font-size: 30px;
         }
     }
