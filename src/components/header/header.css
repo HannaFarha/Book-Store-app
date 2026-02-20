@@ -179,7 +179,7 @@
 
     @media (max-width: 720px) {
         .header-top-text {
-            display: none;
+            display: block;
         }
 
         .header-top-menu {
