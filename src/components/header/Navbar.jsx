@@ -9,7 +9,7 @@ const Navbar = ({ toggle, setToggle }) => {
           Home
         </Link>
         <Link
-          to="/shop"
+          to="/"
           onClick={() => setToggle(false)}
           className="navbar-link"
         >
@@ -17,7 +17,7 @@ const Navbar = ({ toggle, setToggle }) => {
           Shop
         </Link>
         <Link
-          to="/trending"
+          to="/authors"
           onClick={() => setToggle(false)}
           className="navbar-link"
         >
