@@ -2,14 +2,14 @@ import "./slider.css";
 import FirstBook from "../../images/book1.png";
 import SecondBook from "../../images/book2.png";
 import ThirdBook from "../../images/book3.png";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // 1. استيراد useEffect
 import { Link } from "react-router-dom";
 import Arrow from "./Arrow";
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
-  // بيانات الشرائح: استخدمنا الصور الأصلية مع نصوص تسويقية للمنتجات التريندية
+  // بيانات الشرائح
   const slides = [
     {
       id: 1,
@@ -37,7 +37,20 @@ const Slider = () => {
     }
   ];
 
-  // Handle Click
+  // 2. إضافة التغيير التلقائي كل 3 ثوانٍ
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // نستخدم الدالة داخل setSlideIndex للحصول على القيمة السابقة بشكل صحيح
+      setSlideIndex((prevIndex) => 
+        prevIndex < slides.length - 1 ? prevIndex + 1 : 0
+      );
+    }, 3000); // 3000 مللي ثانية = 3 ثوانٍ
+
+    // تنظيف المؤقت عند إلغاء تحميل المكون (لمنع تسرب الذاكرة)
+    return () => clearInterval(interval);
+  }, [slides.length]); // يتم إعادة تشغيل التأثير فقط إذا تغير عدد الشرائح
+
+  // Handle Click (للأزرار اليدوية)
   const handleClick = (direction) => {
     const totalSlides = slides.length;
     if (direction === "left") {
@@ -68,7 +81,6 @@ const Slider = () => {
               <img src={slide.image} alt="Trending Product" />
             </div>
             <div className="slide-info-wrapper">
-              {/* استخدام dangerouslySetInnerHTML لتفعيل لون الذهب على الكلمة المحددة داخل الـ span */}
               <h1 
                 className="slide-info-title" 
                 dangerouslySetInnerHTML={{ __html: slide.title }}
@@ -78,7 +90,6 @@ const Slider = () => {
                 {slide.desc}
               </p>
 
-              {/* زر الدعوة للاتخاذ إجراء */}
               <Link to={slide.link} className="slider-btn">
                 {slide.btnText}
               </Link>
