@@ -3,72 +3,95 @@ import FirstBook from "../../images/book1.png";
 import SecondBook from "../../images/book2.png";
 import ThirdBook from "../../images/book3.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Arrow from "./Arrow";
 
 const Slider = () => {
- 
   const [slideIndex, setSlideIndex] = useState(0);
+
+  // بيانات الشرائح: استخدمنا الصور الأصلية مع نصوص تسويقية للمنتجات التريندية
+  const slides = [
+    {
+      id: 1,
+      image: FirstBook,
+      title: "الأكثر مبيعاً <span>هذا الموسم</span>",
+      desc: "اكتشف المنتجات الأكثر طلباً التي يبحث عنها الجميع.",
+      btnText: "تسوق الآن",
+      link: "/shop"
+    },
+    {
+      id: 2,
+      image: SecondBook,
+      title: "تشكيلة <span>حصرية</span>",
+      desc: "منتجات مختارة بعناية لتلبي ذوقك الراقي ومتطلباتك.",
+      btnText: "اكتشف المزيد",
+      link: "/shop"
+    },
+    {
+      id: 3,
+      image: ThirdBook,
+      title: "وصل حديثاً <span>بشكل سريع</span>",
+      desc: "كن أول من يمتلك أحدث المنتجات المتوفرة لدينا.",
+      btnText: "استكشف الجديد",
+      link: "/shop"
+    }
+  ];
 
   // Handle Click
   const handleClick = (direction) => {
+    const totalSlides = slides.length;
     if (direction === "left") {
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : totalSlides - 1);
     } else {
-      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+      setSlideIndex(slideIndex < totalSlides - 1 ? slideIndex + 1 : 0);
     }
   };
+
   return (
     <div className="slider-container">
-     
-        <Arrow
-          handleClick={() => handleClick("left")}
-          className="bi bi-chevron-double-left arrow-left"
-        />
-      
+      {/* السهم الأيسر */}
+      <Arrow
+        handleClick={() => handleClick("left")}
+        className="bi bi-chevron-left arrow-left"
+      />
+
       <div
         style={{ transform: `translateX(${slideIndex * -100}vw)` }}
         className="slider-wrapper"
       >
-        <div className="slide first-slide">
-          <div className="slide-image-wrapper">
-            <img src={FirstBook} alt="" />
+        {slides.map((slide, index) => (
+          <div 
+            key={slide.id} 
+            className={`slide ${index === 0 ? 'first-slide' : index === 1 ? 'second-slide' : 'third-slide'}`}
+          >
+            <div className="slide-image-wrapper">
+              <img src={slide.image} alt="Trending Product" />
+            </div>
+            <div className="slide-info-wrapper">
+              {/* استخدام dangerouslySetInnerHTML لتفعيل لون الذهب على الكلمة المحددة داخل الـ span */}
+              <h1 
+                className="slide-info-title" 
+                dangerouslySetInnerHTML={{ __html: slide.title }}
+              ></h1>
+              
+              <p className="slide-info-desc">
+                {slide.desc}
+              </p>
+
+              {/* زر الدعوة للاتخاذ إجراء */}
+              <Link to={slide.link} className="slider-btn">
+                {slide.btnText}
+              </Link>
+            </div>
           </div>
-          <div className="slide-info-wrapper">
-            <h1 className="slide-info-title">Book Store</h1>
-            <p className="slide-info-desc">
-              It's not just reading. it's living the adventure
-            </p>
-          </div>
-        </div>
-        <div className="slide second-slide">
-          <div className="slide-image-wrapper">
-            <img src={SecondBook} alt="" />
-          </div>
-          <div className="slide-info-wrapper">
-            <h1 className="slide-info-title">The Books For Everyone</h1>
-            <p className="slide-info-desc">
-              You can read at the bookstore or at home
-            </p>
-          </div>
-        </div>
-        <div className="slide third-slide">
-          <div className="slide-image-wrapper">
-            <img src={ThirdBook} alt="" />
-          </div>
-          <div className="slide-info-wrapper">
-            <h1 className="slide-info-title">Check Out The New Titles</h1>
-            <p className="slide-info-desc">
-              We send you the book you want at home
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
-      
-        <Arrow
-          handleClick={() => handleClick("right")}
-          className="bi bi-chevron-double-right arrow-right"
-        />
-      
+
+      {/* السهم الأيمن */}
+      <Arrow
+        handleClick={() => handleClick("right")}
+        className="bi bi-chevron-right arrow-right"
+      />
     </div>
   );
 };
