@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/cartContext";
+import logo from "../../images/logo.png"; // استيراد صورة اللوجو
 
 const HeaderMiddle = () => {
   const { cartItemsLength } = useContext(CartContext);
@@ -8,8 +9,12 @@ const HeaderMiddle = () => {
   return (
     <div className="header-middle">
       <Link to="/" className="header-middle-logo">
+        {/* ملاحظة: إذا كان اللوجو يحتوي على اسم المتجر، يمكنك إزالة وسوم <b> التالية */}
         <b>7LW</b>
-        <i className="bi bi-gem"></i> {/* أيقونة جوهرة للفخامة */}
+        
+        {/* استبدال الأيقونة بالصورة */}
+        <img src={logo} alt="7LW:LAK Logo" className="header-logo-img" />
+        
         <b>LAK</b>
       </Link>
       
