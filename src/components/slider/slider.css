@@ -1,109 +1,341 @@
-.slider-container {
-    height: calc(100vh - 250px);
-    width: 100%;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-}
 
-.arrow-right,
-.arrow-left {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 110, 0.5);
-    color: var(--main-color);
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    cursor: pointer;
-    z-index: 2;
-    font-size: 30px;
-}
-
-.arrow-left {
-    left: 10px;
-}
-
-.arrow-right {
-    right: 10px;
-}
-
-.slider-wrapper {
-    height: 100%;
-    display: flex;
-    transition: all .5s ease;
-}
-
-.slide {
-    height: calc(100vh - 250px);
-    width: 100vw;
-    display: flex;
-    align-items: center;
-}
-
-.slide.first-slide {
-    background: rgb(34, 193, 195);
-    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
-}
-
-.slide.second-slide {
-    background: rgb(238, 174, 202);
-    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
-}
-
-.slide.third-slide {
-    background: rgb(131, 58, 180);
-    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 80%, rgba(252, 176, 69, 1) 100%);
-}
-
-.slide-image-wrapper {
-    height: 90%;
-    width: 50%;
-}
-
-.slide-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.slide-info-wrapper {
-    width: 50%;
-    margin-right: 40px;
-}
-
-.slide-info-title {
-    font-size: 40px;
-}
-
-.slide-info-desc {
-    margin: 21px 0;
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: 3px;
-}
-
-@media(max-width: 720px) {
-    .slide-info-wrapper {
-        margin-right: 20px;
+    /* === Base Styles (Desktop & Common) === */
+    .header {
+        min-height: 250px; /* استخدام min-height للمرونة */
+        background-color: #0a0a0a; /* أسود مطفأ */
+        width: 100%;
+        position: relative;
     }
 
-    .slide-info-title {
-        font-size: 25px;
+    /* Header Top */
+    .header-top {
+        padding: 0 30px;
+        height: 20%;
+        border-bottom: 1px solid #D4AF37; /* حد ذهبي */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    .slide-info-desc {
-        font-size: 17px;
+    .header-top-menu {
+        display: none; /* مخفي على الديسكتوب */
+        font-size: 32px;
+        color: #D4AF37;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10;
     }
-}
 
-@media(max-width: 520px) {
-    .slider-container {
-        display: none;
+    .header-top-phone,
+    .header-top-text,
+    .header-top-link {
+        font-size: 27px;
+        font-weight: 500;
+        color: #D4AF37;
     }
-}
+
+    .header-top-link {
+        text-decoration: none;
+    }
+
+    /* Header Middle */
+    .header-middle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        height: 50%;
+        position: relative; /* مهم لتمركز العناصر على الموبايل */
+    }
+
+    .header-middle-logo {
+        color: #ffffff;
+        font-size: 20px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        z-index: 5;
+    }
+
+    .header-middle-logo i {
+        margin: 0 6px;
+        font-size: 40px;
+        color: #D4AF37;
+    }
+
+    .header-middle-search-box {
+        width: 700px;
+        background-color: #161616;
+        border: 1px solid #D4AF37;
+        height: 60px;
+        border-radius: 50px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .header-middle-search-input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding: 0 60px 0 25px; /* تعديل الـ padding ليتناسب مع RTL */
+        font-size: 24px;
+        background-color: transparent;
+        color: #ffffff;
+    }
+
+    .header-middle-search-input::placeholder {
+        color: #6b7280;
+    }
+
+    .header-middle-search-box i.bi-search {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 20px; /* يمين في RTL */
+        font-size: 32px;
+        color: #D4AF37;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-middle-cart-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .cart-notification {
+        position: absolute;
+        top: -7px;
+        right: -12px;
+        color: #0a0a0a;
+        background-color: #D4AF37;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+        border: 2px solid #0a0a0a; /* حد لفصل الخلفية */
+    }
+
+    .header-middle-cart-wrapper i.bi-cart2 {
+        font-size: 44px;
+        color: #D4AF37;
+        cursor: pointer;
+    }
+
+    /* Navbar */
+    .navbar {
+        background-color: #111111;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        height: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-links {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .navbar-link {
+        padding: 0 20px;
+        font-size: 21px;
+        font-weight: 600;
+        color: #D4AF37;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-link:hover {
+        background-color: #D4AF37;
+        color: #0a0a0a;
+    }
+
+    /* === Responsive Design (Mobile First Adjustments) === */
+
+    /* Tablet Size */
+    @media (max-width: 990px) {
+        .header-middle-search-box {
+            width: 600px;
+        }
+    }
+
+    @media (max-width: 920px) {
+        .header-middle-search-box {
+            width: 450px;
+        }
+        .header-top-text {
+            font-size: 17px;
+        }
+        .header-middle-logo {
+            font-size: 17px;
+        }
+    }
+
+    /* Mobile Size (The Critical Part) */
+    @media (max-width: 720px) {
+        /* Header adjustments */
+        .header {
+            min-height: auto; /* السماح للارتفاع بالتغير */
+            height: auto;
+            padding-bottom: 15px; /* مساحة أسفل */
+        }
+
+        .header-top {
+            height: auto;
+            padding: 15px 20px;
+            border-bottom: none; /* إزالة الحد لتنظيف المظهر */
+        }
+
+        /* Hide text, show menu icon */
+        .header-top-text {
+            display: none;
+        }
+        
+        .header-top-menu {
+            display: block;
+            order: 1; /* اليسار */
+        }
+
+        .header-top-phone {
+            font-size: 16px; /* تصغير خط الهاتف قليلاً */
+            order: 3; /* اليمين */
+        }
+
+        /* Header Middle Layout for Mobile */
+        .header-middle {
+            flex-wrap: wrap; /* السماح للعناصر بالنزول لسطر جديد */
+            padding: 0 15px;
+            height: auto;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        /* LOGO: Show and Center */
+        .header-middle-logo {
+            display: flex !important; /* إجبار الظهور */
+            order: 2; /* الوسط */
+            position: absolute; /* تمركز مطلق في المنتصف */
+            left: 50%;
+            transform: translateX(-50%);
+            top: -50px; /* ضبط الموقع ليكون في الصف العلوي */
+            font-size: 24px;
+        }
+        
+        .header-middle-logo i {
+            font-size: 36px;
+        }
+
+        /* SEARCH: Full Width */
+        .header-middle-search-box {
+            width: 100%; /* العرض الكامل */
+            order: 4; /* أسفل */
+            margin-top: 15px;
+            height: 50px; /* ارتفاع مناسب للموبايل */
+        }
+
+        .header-middle-search-input {
+            font-size: 18px;
+        }
+
+        .header-middle-search-box i.bi-search {
+            font-size: 24px;
+        }
+
+        /* CART: Position in Top Row */
+        .header-middle-cart-wrapper {
+            position: absolute;
+            right: 20px;
+            top: -45px; /* محاذاة مع الشعار والقائمة */
+            order: 3;
+        }
+
+        .header-middle-cart-wrapper i.bi-cart2 {
+            font-size: 32px;
+        }
+        
+        .cart-notification {
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            top: -5px;
+            right: -8px;
+        }
+
+        /* NAVBAR: Sidebar Style */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0; /* لوحة التحكم تظهر من اليسار */
+            width: 280px; /* عرض مناسب للموبايل */
+            height: 100vh;
+            align-items: flex-start;
+            z-index: 9999;
+            transform: translateX(-100%); /* مخفية افتراضياً */
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 5px 0 20px rgba(0,0,0,0.8);
+            padding-top: 80px; /* مساحة من الأعلى */
+        }
+
+        /* Class to be added via JS when menu opens */
+        .navbar.active {
+            transform: translateX(0);
+        }
+
+        .navbar-links {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch; /* stretch items */
+            height: auto;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .navbar-link {
+            width: 100%;
+            padding: 20px 30px;
+            font-size: 20px;
+            border-bottom: 1px solid #1f1f1f;
+            justify-content: flex-start; /* النص لليسار */
+        }
+        
+        .navbar-link:hover {
+            background-color: #D4AF37;
+            color: #0a0a0a;
+            padding-right: 40px; /* تأثير حركة بسيط */
+        }
+    }
+
+    /* Small Mobile Size */
+    @media (max-width: 520px) {
+        .header-top {
+            padding: 10px 15px;
+        }
+        
+        .header-middle {
+            padding: 0 10px;
+        }
+
+        .header-top-phone {
+            font-size: 14px; /* خط أصغر للهواتف الصغيرة جداً */
+        }
+        
+        .header-middle-logo {
+            font-size: 20px;
+            top: -45px;
+        }
+        
+        .header-middle-logo i {
+            font-size: 30px;
+        }
+    }
