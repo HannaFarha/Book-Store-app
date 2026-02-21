@@ -8,7 +8,7 @@ const Services = () => {
         <i className="bi bi-truck"></i>
         <div className="service-text">
           <b>توصيل سريع ومجاني</b>
-          <span>لجميع الطلبات داخل المملكة</span>
+          <span>لجميع الطلبات داخل البلد</span>
         </div>
       </div>
 
