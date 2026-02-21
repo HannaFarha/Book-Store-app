@@ -1,45 +1,99 @@
+/* services.css */
+
 .services {
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    padding: 60px 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* استخدام Grid لتنظيم أفضل */
+    gap: 30px;
+    background-color: var(--main-bg, #0a0a0a); /* خلفية داكنة */
+    font-family: 'Cairo', sans-serif;
 }
 
 .service-item {
-    padding: 7px;
-    font-size: 21px;
+    padding: 30px 20px;
+    font-size: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #2c3e50;
-    border: 1px solid gray;
-    width: 21%;
-    border-radius: 60px;
+    text-align: center;
+    color: var(--text-white, #ffffff);
+    background-color: #161616; /* خلفية البطاقة */
+    border: 1px solid #2a2a2a; /* حد داكن خفيف */
+    border-radius: 12px; /* حواف مستديرة عصرية بدلاً من الشكل الحبويبي */
+    transition: all 0.4s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+/* تأثير التحويم الفاخر */
+.service-item:hover {
+    border-color: var(--gold, #D4AF37); /* حد ذهبي */
+    transform: translateY(-8px); /* ارتفاع للأسفل */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .service-item i {
-    font-size: 40px;
+    font-size: 42px;
+    color: var(--gold, #D4AF37); /* أيقونات ذهبية */
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-@media (max-width : 920px){
+/* حركة بسيطة للأيقونة عند التمرير */
+.service-item:hover i {
+    transform: scale(1.15);
+    color: var(--gold-light, #E5C76B);
+}
+
+.service-item b {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+/* إضافة نص فرغي اختياري للتنسيق */
+.service-item span {
+    font-size: 14px;
+    color: #6b7280;
+    font-family: 'Almarai', sans-serif;
+    margin-top: 5px;
+    display: block;
+}
+
+/* === Responsive Design === */
+
+@media (max-width: 992px) {
     .services {
-        flex-wrap: wrap;
-        padding: 30 15px;
-    }
-    .service-item {
-        width: 45%;
-        margin-bottom: 20px;
+        grid-template-columns: repeat(2, 1fr); /* صفين في الأجهزة اللوحية */
+        padding: 40px 3%;
     }
 }
 
-@media (max-width : 520px){
-   .service-item {
-        width: 90%;
-        font-size: 25px;
+@media (max-width: 520px) {
+    .services {
+        grid-template-columns: 1fr; /* عمود واحد في الجوال */
+        padding: 30px 15px;
+        gap: 20px;
+    }
+
+    .service-item {
+        flex-direction: row-reverse; /* عكس الاتجاه ليصبح الأيقونة يمين والنص يسار (RTL) */
+        justify-content: flex-start;
+        text-align: right;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .service-item i {
+        margin-bottom: 0;
+        margin-left: 20px; /* مسافة بين الأيقونة والنص */
+        font-size: 36px;
     }
     
-    .service-item i {
-        font-size: 40px;
+    .service-item b {
+        font-size: 18px;
     }
 }
