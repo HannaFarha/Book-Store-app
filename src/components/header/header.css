@@ -10,6 +10,12 @@
     --text-white: #ffffff;
     --text-gray: #9ca3af;
 }
+.header-logo-img {
+    height: 40px; /* نفس ارتفاع الأيقونة السابقة تقريباً */
+    width: auto;  /* للحفاظ على تناسق الأبعاد */
+    object-fit: contain;
+    margin: 0 8px; /* مسافة بين اللوجو والنص */
+}
 
 .header {
     min-height: 150px;
@@ -333,12 +339,6 @@
         background-color: rgba(212, 175, 55, 0.1);
     }/* أضف هذا في ملف header.css */
 
-.header-logo-img {
-    height: 40px; /* نفس ارتفاع الأيقونة السابقة تقريباً */
-    width: auto;  /* للحفاظ على تناسق الأبعاد */
-    object-fit: contain;
-    margin: 0 8px; /* مسافة بين اللوجو والنص */
-}
 
 /* تنسيق إضافي للهواتف لضمان عدم كبر الصورة */
 @media (max-width: 768px) {
